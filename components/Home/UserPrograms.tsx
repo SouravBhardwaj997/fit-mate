@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { USER_PROGRAMS } from "@/constants";
 
-const UserPrograms = () => {
+export const UserPrograms = () => {
   return (
     <div className="w-full pb-24 pt-16 relative">
       <div className="container mx-auto max-w-6xl px-4">
@@ -218,5 +218,3 @@ const UserPrograms = () => {
     </div>
   );
 };
-
-export default UserPrograms;

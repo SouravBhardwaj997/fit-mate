@@ -1,4 +1,4 @@
-const TerminalOverlay = () => {
+export const TerminalOverlay = () => {
   return (
     <div className="absolute bottom-0 left-0 right-0 p-4">
       <div className="relative bg-cyber-terminal-bg backdrop-blur-sm border border-border rounded-lg p-3 overflow-hidden font-mono">
@@ -33,4 +33,3 @@ const TerminalOverlay = () => {
     </div>
   );
 };
-export default TerminalOverlay;

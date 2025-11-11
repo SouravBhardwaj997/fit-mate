@@ -111,8 +111,8 @@ http.route({
   method: "POST",
   handler: httpAction(async (ctx, request) => {
     try {
+      console.log("request hit");
       const payload = await request.json();
-
       const {
         user_id,
         age,

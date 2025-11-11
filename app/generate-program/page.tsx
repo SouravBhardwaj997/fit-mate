@@ -62,6 +62,7 @@ const GenerateProgramPage = () => {
       setIsSpeaking(false);
     };
     const handleMessage = (message: any) => {
+      console.log("Received message:", message);
       if (message.type === "transcript" && message.transcriptType === "final") {
         const newMessage = { content: message.transcript, role: message.role };
         setMessages((prev) => [...prev, newMessage]);
@@ -106,12 +107,16 @@ const GenerateProgramPage = () => {
           ? `${user.firstName} ${user.lastName || ""}`.trim()
           : "There";
 
-        await vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!, {
-          variableValues: {
-            full_name: fullName,
-            user_id: user?.id,
-          },
-        });
+        const res = await vapi.start(
+          process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!,
+          {
+            variableValues: {
+              full_name: fullName,
+              user_id: user?.id,
+            },
+          }
+        );
+        console.log("res", res);
       } catch (error) {
         console.log("Failed to start call", error);
         setConnecting(false);
